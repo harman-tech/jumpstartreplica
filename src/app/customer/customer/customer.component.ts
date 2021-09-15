@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 @Component({

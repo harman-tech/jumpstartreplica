@@ -20,12 +20,16 @@ export class DataService {
 
 
   getCustomers() {
-    return this.http.get(this.baseUrl);
+    return this.http.get<ICustomer[]>(this.baseUrl);
   }
 
   getCustomerById(id: number): Observable<ICustomer> {
     return this.http.get<ICustomer>(this.baseUrl + '/' + id)
 
   }
+  updateCustomer(customer: ICustomer): Observable<any> {
+    return this.http.put<ICustomer>(this.baseUrl + '/' + customer.id, customer)
+     
+}
 
 }

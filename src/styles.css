@@ -236,3 +236,13 @@ a:hover, a:focus {
    width:100px;
    height:100px;
 }
+.details-image{
+   width:100px;
+   height:100px;
+}
+.search{
+  display:flex;
+ 
+  margin-left: 540px;
+  
+}

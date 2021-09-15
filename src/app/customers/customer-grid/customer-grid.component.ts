@@ -1,10 +1,12 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component,Input, OnInit } from '@angular/core';
+import { SorterService } from 'src/app/core/services/sorter.service';
 import { ICustomer } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-customer-grid',
   templateUrl: './customer-grid.component.html',
-  styleUrls: ['./customer-grid.component.css']
+  styleUrls: ['./customer-grid.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerGridComponent implements OnInit {
   @Input() customers: ICustomer[] = [];
@@ -12,9 +14,10 @@ export class CustomerGridComponent implements OnInit {
   count: any = 5;
   
 
-  constructor() { }
+  constructor(private sorterservice:SorterService) { }
 
   ngOnInit(): void {
   }
+ 
 
 }

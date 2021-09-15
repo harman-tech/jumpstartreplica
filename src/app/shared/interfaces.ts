@@ -16,6 +16,10 @@ export interface ICustomer {
     longitude?: number;
    
 }
+export interface IState {
+    abbreviation: string;
+    name: string;
+}
 export interface IUserLogin {
     email: string;
     password: string;

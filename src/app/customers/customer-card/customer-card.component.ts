@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ICustomer } from '../../shared/interfaces';
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
@@ -6,7 +6,8 @@ import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router'
 @Component({
   selector: 'app-customer-card',
   templateUrl: './customer-card.component.html',
-  styleUrls: ['./customer-card.component.css']
+  styleUrls: ['./customer-card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerCardComponent implements OnInit {
   

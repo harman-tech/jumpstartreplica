@@ -12,27 +12,23 @@ export class CustomerOrderComponent implements OnInit {
   orders: IOrder[] = [];
   customer: any;
   sub: any;
-  id: any;
+ 
   constructor(private service: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.route.snapshot.params('id');
+     this.route.parent.params.subscribe((params:Params)=>{
+       const id=+params['id'];
+       console.log(id);
+     
+      this.service.getCustomerById(id).subscribe((customer: ICustomer) => {
+      this.customer = customer;
+       console.log(this.customer)
 
 
-    const id: string = this.route.snapshot.params.id;
-    console.log(id);
-    //const url: string = route.snapshot.url.join('');
+      });
 
-    //const user = route.snapshot.data.user;
+  });
+}
 
-
-
-
-    // this.service.getCustomerById(this.id).subscribe((customer: ICustomer) => {
-    //   this.customer = customer;
-    //   console.log(this.customer)
-
-
-  }
 
 }

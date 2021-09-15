@@ -6,20 +6,23 @@ import { CustomerGridComponent } from './customer-grid/customer-grid.component';
 import { CustomerCardComponent } from './customer-card/customer-card.component';
 import { CustomersComponent } from './customers.component';
 import { DataService } from '../core/services/data.service';
-import { NgxPaginationModule } from 'ngx-pagination'
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchFilterComponent } from '../shared/search-filter/search-filter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     CustomersComponent,
     CustomerGridComponent,
-    CustomerCardComponent
+    CustomerCardComponent,
+    SearchFilterComponent
+    
   ],
   imports: [
     CommonModule,
     CustomersRoutingModule,
-    NgxPaginationModule
-    
+    NgxPaginationModule,
+    FormsModule
   ],
   providers:[DataService]
 })

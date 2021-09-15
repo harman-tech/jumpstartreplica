@@ -6,6 +6,8 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { CustomerOrderComponent } from './customer-order/customer-order.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerComponent } from './customer/customer.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import { CustomerComponent } from './customer/customer.component';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,FormsModule,ReactiveFormsModule
   ]
 })
 export class CustomerModule { }

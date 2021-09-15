@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { ICustomer, IPagedResults } from 'src/app/shared/interfaces';
+import { FilterService } from '../core/services/filter.service';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.css']
+  styleUrls: ['./customers.component.css'],
+ 
 })
 export class CustomersComponent implements OnInit {
-  customers:any;
+  customers:ICustomer[]=[];
   pageSize = 10;
   _filteredcustomers:ICustomer[]=[];
   displayMode!: DisplayModeEnum;
@@ -24,7 +26,7 @@ export class CustomersComponent implements OnInit {
     
   }
 
-  constructor( private dataService: DataService,) { 
+  constructor( private dataService: DataService,private filterservice:FilterService) { 
     
   }
 
@@ -53,7 +55,17 @@ export class CustomersComponent implements OnInit {
   //       () => console.log('getCustomersPage() retrieved customers for page: ' + page));
       
   // }
+  filterChanged(data: string) {
 
+    if (data && this.customers) {
+        data = data.toUpperCase();
+        const props = ['firstName', 'lastName', 'city', 'state.name'];
+        const testfilter= this.filterservice.filter<ICustomer>(this.customers, data, props);
+        this.filteredCustomers = testfilter;
+    } else {
+      this.filteredCustomers = this.customers;
+    }
+  }
 }
 enum DisplayModeEnum {
   Card = 0,

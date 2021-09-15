@@ -12,7 +12,11 @@
         <span class="glyphicon glyphicon-plus"></span> New Customer
       </a>
     </li>
+     <div class="search">
+       <app-search-filter (changed)="filterChanged($event)"></app-search-filter>
+     </div>
   </ul>
+  
 </div>
 <app-customer-card [customers]="customers"
 [hidden]="displayMode !== displayModeEnum.Card"></app-customer-card>

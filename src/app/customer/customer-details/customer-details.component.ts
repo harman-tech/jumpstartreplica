@@ -15,7 +15,7 @@ export class CustomerDetailsComponent implements OnInit {
     private dataService: DataService,) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
+    this.route.parent.params.subscribe((params: Params) => {
       const id = +params['id'];
       if (id) {
         this.dataService.getCustomerById(id)
